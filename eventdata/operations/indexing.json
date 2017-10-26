@@ -1,4 +1,16 @@
 {
+  "name": "index-append-100000",
+  "operation-type": "index",
+  "param-source": "elasticlogs_bulk",
+  "bulk-size": 100000
+},
+{
+  "name": "index-append-75000",
+  "operation-type": "index",
+  "param-source": "elasticlogs_bulk",
+  "bulk-size": 75000
+},
+{
   "name": "index-append-50000",
   "operation-type": "index",
   "param-source": "elasticlogs_bulk",
@@ -88,7 +100,7 @@
       "index.number_of_replicas": {{ replica_count }},
       "index.number_of_shards": {{ shard_count }}
     },
-    "mappings": 
+    "mappings":
       {% include "mappings.json" %}
     ,
     "aliases": {}
@@ -108,7 +120,7 @@
       "index.number_of_replicas": {{ replica_count }},
       "index.number_of_shards": {{ shard_count }}
     },
-    "mappings": 
+    "mappings":
         {% include "mappings.json" %}
     ,
     "aliases": {}
