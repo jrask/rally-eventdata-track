@@ -3,7 +3,7 @@
   "description": "This challenge simulates a set of Kibana queries against historical data (elasticlogs_q-* indices) as well as against the most recent data currently being indexed. It combined this with rate-limited indexing at varying levels. It assumes one of the challenges creating elasticlogs_q-* indices has been run.",
   "meta": {
     "benchmark_type": "indexing/querying",
-    "target_kibana_queries_per_minute": 7
+    "target_kibana_queries_per_minute": 20
   },
   "schedule": [
     {
@@ -18,7 +18,7 @@
       "parallel": {
         "warmup-iterations": 0,
         "iterations": 200,
-        "tasks": [ 
+        "tasks": [
           {
             "operation": "relative-kibana-content_issues-dashboard_75%",
             "meta": {
@@ -52,7 +52,7 @@
     },
     {# Add some data to index so it does not start empty #}
     {
-      "operation": "index-append-1000-elasticlogs_i_write",    
+      "operation": "index-append-1000-elasticlogs_i_write",
       "warmup-time-period": {{ rate_limit_duration_secs }},
       "time-period": {{ rate_limit_duration_secs }},
       "target-throughput": 10,
@@ -78,34 +78,16 @@
             "target-interval": 20
           },
           {
-            "operation": "current-kibana-traffic-dashboard_30m",
+            "operation": "current-kibana-traffic-dashboard_60m",
             "target-interval": 60,
-            "meta": {
-              "target_indexing_rate": {{ rate }},
-              "query_type": "current"
-            }
-          },
-          { 
-            "operation": "current-kibana-content_issues-dashboard_30m",
-            "target-interval": 60,
-            "meta": {
-              "target_indexing_rate": {{ rate }},
-              "query_type": "current"
-            }
-          },
-          { 
-            "operation": "current-kibana-traffic-dashboard_15m",
-            "target-interval": 30,
-            "clients": 2,
             "meta": {
               "target_indexing_rate": {{ rate }},
               "query_type": "current"
             }
           },
           {
-            "operation": "current-kibana-content_issues-dashboard_15m",
-            "target-interval": 30,
-            "clients": 2,
+            "operation": "current-kibana-content_issues-dashboard_60m",
+            "target-interval": 60,
             "meta": {
               "target_indexing_rate": {{ rate }},
               "query_type": "current"
