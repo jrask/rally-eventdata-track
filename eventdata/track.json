@@ -4,10 +4,12 @@
 {% set clients = 20 %}
 
 {# Rate limit steps (ops) for combined indexing and querying #}
-{% set rate_limit_ops = [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30] %}
+{#% set rate_limit_ops = [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30] %}
+
+{% set rate_limit_ops = [10,20,30,40] %}
 
 {# Duration of each rate limited indexing and querying benchmark in seconds #}
-{% set rate_limit_duration_secs = 1200 %}
+{% set rate_limit_duration_secs = 600 %}
 
 {# Number of primary shards and replicas to index into #}
 {% set shard_count = 2 %}
@@ -15,6 +17,10 @@
 
 {% set shard_sizing_iterations = 25 %}
 {% set shard_sizing_queries = 20 %}
+
+{ set kibana_window_length = "1d" %}
+{ set kibana_target_interval = 5 %}
+
 
 {% import "rally.helpers" as rally with context %}
 

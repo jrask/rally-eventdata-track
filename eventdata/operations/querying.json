@@ -49,14 +49,14 @@
   "window_length": "30m"
 },
 {
-  "name": "current-kibana-traffic-dashboard_60m",
+  "name": "current-kibana-traffic-dashboard",
   "operation-type": "kibana",
   "param-source": "elasticlogs_kibana",
   "dashboard":"traffic",
   "index_pattern": "elasticlogs_i-*",
   "query_string": ["*"],
   "window_end": "now",
-  "window_length": "60m"
+  "window_length": {{ kibana_window_length}}
 },
 {
   "name": "current-kibana-content_issues-dashboard_30m",
@@ -69,14 +69,14 @@
   "window_length": "1h"
 },
 {
-  "name": "current-kibana-content_issues-dashboard_60m",
+  "name": "current-kibana-content_issues-dashboard",
   "operation-type": "kibana",
   "param-source": "elasticlogs_kibana",
   "dashboard": "content_issues",
   "index_pattern": "elasticlogs_i-*",
   "query_string": ["*"],
   "window_end": "now",
-  "window_length": "1h"
+  "window_length": {{ kibana_window_length}}
 },
 {
   "name": "current-kibana-traffic-dashboard_15m",
