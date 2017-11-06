@@ -83,7 +83,7 @@
             "meta": {
               "target_indexing_rate": {{ rate }},
               "query_type": "current",
-              "window_length" : {{window_length}}
+              "window_length" : "{{window_length}}"
             }
           },
           {
@@ -92,7 +92,7 @@
             "meta": {
               "target_indexing_rate": {{ rate }},
               "query_type": "current",
-              "window_length" : {{window_length}}
+              "window_length" :  "{{window_length}}"
             }
           },
           {
@@ -101,7 +101,7 @@
             "meta": {
               "target_indexing_rate": {{ rate }},
               "query_type": "historic",
-              "window_length" : {{window_length}}
+              "window_length" :  "{{window_length}}"
             }
           }
         ]
