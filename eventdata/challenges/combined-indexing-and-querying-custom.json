@@ -1,12 +1,13 @@
 {
-  "name": "combined-indexing-and-querying",
+  "name": "combined-indexing-and-querying-custom",
   "description": "This challenge simulates a set of Kibana queries against historical data (elasticlogs_q-* indices) as well as against the most recent data currently being indexed. It combined this with rate-limited indexing at varying levels. It assumes one of the challenges creating elasticlogs_q-* indices has been run.",
   "meta": {
     "benchmark_type": "indexing/querying",
-    "target_kibana_queries_per_minute": 20
+    "target_kibana_queries_per_minute": 6 
   },
   "schedule": [
-    {
+
+     {
       "operation": "deleteindex_elasticlogs_i-*",
       "iterations": 1
     },
@@ -35,7 +36,7 @@
         "tasks": [
           {
             "operation": "relative-kibana-content_issues-dashboard_50%",
-            "target-interval": 5,
+            "target-interval": 60,
             "meta": {
               "target_indexing_rate": 0,
               "query_type": "historic"
@@ -58,6 +59,8 @@
       "target-throughput": 10,
       "clients": {{ clients }}
     },
+
+
     {% for ops in rate_limit_ops %}
     {% set rate = ops * 1000 %}
     {
@@ -73,10 +76,10 @@
               "target_indexing_rate": {{ rate }}
             }
           },
-          {
+          {#{
             "operation": "rollover_elasticlogs_i_write_50M",
             "target-interval": 20
-          },
+          },#}
           {
             "operation": "current-kibana-traffic-dashboard",
             "target-interval": {{ kibana_target_interval }},

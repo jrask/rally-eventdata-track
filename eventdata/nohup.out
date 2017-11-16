@@ -1,0 +1,30 @@
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+Traceback (most recent call last):
+  File "/usr/local/bin/esrally", line 7, in <module>
+    from esrally.rally import main
+  File "/usr/local/lib/python3.6/site-packages/esrally/__init__.py", line 3, in <module>
+    import pkg_resources
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/__init__.py", line 74, in <module>
+    __import__('pkg_resources.extern.packaging.requirements')
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/_vendor/packaging/requirements.py", line 14, in <module>
+    from .markers import MARKER_EXPR, Marker
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/_vendor/packaging/markers.py", line 81, in <module>
+    L("python_implementation") |  # undocumented setuptools legacy
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1917, in __or__
+    return MatchFirst( [ self, other ] )
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 3500, in __init__
+    super(MatchFirst,self).__init__(exprs, savelist)
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 3220, in __init__
+    super(ParseExpression,self).__init__(savelist)
+  File "/usr/local/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1133, in __init__
+    self.ignoreExprs = list()
+KeyboardInterrupt
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.
+Cannot rebase: You have unstaged changes.
+Please commit or stash them.

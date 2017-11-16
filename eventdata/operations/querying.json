@@ -56,7 +56,7 @@
   "index_pattern": "elasticlogs_i-*",
   "query_string": ["*"],
   "window_end": "now",
-  "window_length": {{ kibana_window_length}}
+  "window_length": "{{ kibana_window_length}}"
 },
 {
   "name": "current-kibana-content_issues-dashboard_30m",
@@ -76,7 +76,7 @@
   "index_pattern": "elasticlogs_i-*",
   "query_string": ["*"],
   "window_end": "now",
-  "window_length": {{ kibana_window_length}}
+  "window_length": "{{ kibana_window_length}}"
 },
 {
   "name": "current-kibana-traffic-dashboard_15m",
